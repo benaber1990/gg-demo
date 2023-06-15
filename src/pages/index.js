@@ -88,11 +88,13 @@ const IndexPage = () => {
         <div
           onClick={changeSecondStateHandler}
           style={{
-            width: 500,
+            width: "90%",
+            maxWidth: 500,
             height: 250,
             borderRadius: 8,
             backgroundColor: "white ",
             marginTop: 20,
+            marginHorizontal: 30,
           }}
         >
           <h1
@@ -115,11 +117,12 @@ const IndexPage = () => {
         >
           <div
             style={{
-              width: 800,
-              height: 250,
+              width: "90%",
+              maxWidth: 500,
               borderRadius: 8,
               backgroundColor: "white ",
               marginTop: 20,
+              paddingBottom: 30,
             }}
           >
             <h2 style={{ fontFamily: "Open Sans", textAlign: "center" }}>
