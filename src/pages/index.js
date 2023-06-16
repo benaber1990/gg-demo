@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 const titleContainer = {
   color: "white",
@@ -58,6 +60,24 @@ const IndexPage = () => {
   const changeSecondStateHandler = () =>
     setShowSecond((prevState) => !prevState);
 
+  const UpcomingGamesComp = ({ fixture }) => (
+    <div
+      onClick={changeSecondStateHandler}
+      style={{
+        backgroundColor: "white",
+        marginRight: 30,
+        marginLeft: 30,
+        padding: 15,
+        borderRadius: 8,
+        width: 300,
+      }}
+    >
+      <h2 style={{ textAlign: "center", fontFamily: "Open Sans" }}>
+        {fixture}
+      </h2>
+    </div>
+  );
+
   return (
     <main
       style={{
@@ -68,6 +88,31 @@ const IndexPage = () => {
         alignContent: "center",
       }}
     >
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <h2
+          style={{
+            color: "white",
+            marginRight: 20,
+            fontSize: 14,
+            fontFamily: "Open Sans",
+          }}
+        >
+          Home
+        </h2>
+        <h2
+          style={{
+            color: "white",
+            marginRight: 20,
+            fontSize: 14,
+            fontFamily: "Open Sans",
+          }}
+        >
+          All Games{" "}
+        </h2>
+        <h2 style={{ color: "white", fontSize: 14, fontFamily: "Open Sans" }}>
+          My Account
+        </h2>
+      </div>
       <h1
         style={{
           fontFamily: "Open Sans",
@@ -105,6 +150,14 @@ const IndexPage = () => {
           >
             Burnley vs Man City
           </h1>
+          <p
+            style={{
+              textAlign: "center",
+              fontFamily: "Open Sans",
+            }}
+          >
+            Current prize pool: £826
+          </p>
         </div>
       </div>
       {showSecond && (
@@ -116,6 +169,7 @@ const IndexPage = () => {
           }}
         >
           <div
+            onClick={changeSecondStateHandler}
             style={{
               width: "90%",
               maxWidth: 500,
@@ -126,14 +180,55 @@ const IndexPage = () => {
             }}
           >
             <h2 style={{ fontFamily: "Open Sans", textAlign: "center" }}>
-              Congratulations
+              Your time for this game is
             </h2>
-            <h2 style={{ fontFamily: "Open Sans", textAlign: "center" }}>
-              You've drawn Second: {Math.floor(Math.random() * 1000)}
-            </h2>
+            <div
+              style={{
+                backgroundColor: "#87A330",
+                borderRadius: 6,
+                // padding: 20,
+                marginRight: 60,
+                marginLeft: 60,
+                paddingTop: 10,
+                paddingBottom: 10,
+              }}
+            >
+              <h2
+                style={{
+                  fontFamily: "Open Sans",
+                  textAlign: "center",
+                  color: "white",
+                }}
+              >
+                Min: {Math.floor(Math.random() * 90)} Sec:{"   "}
+                {Math.floor(Math.random() * 60)}
+              </h2>
+            </div>
           </div>
         </div>
       )}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: 30,
+        }}
+      >
+        <UpcomingGamesComp fixture="New Utd vs Burnley" />
+        <UpcomingGamesComp fixture="Chelsea vs Liverpool" />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: 30,
+        }}
+      >
+        <UpcomingGamesComp fixture="Everton vs Fulham" />
+        <UpcomingGamesComp fixture="Man Utd vs Wolves" />
+      </div>
     </main>
   );
 };
